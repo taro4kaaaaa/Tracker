@@ -1,0 +1,86 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.field input,
+.field select {
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  background-color: white;
+  font-size: 16px;
+}
+
+.field select {
+  cursor: pointer;
+}
+
+/* Скрыть стрелки у числовых полей */
+.noSpinButtons::-webkit-outer-spin-button,
+.noSpinButtons::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.cancelButton,
+.submitButton {
+  flex: 1;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancelButton {
+  background-color: transparent;
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.cancelButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.submitButton {
+  background-color: var(--color-green);
+  border: none;
+  color: white;
+}
+
+.submitButton:hover {
+  opacity: 0.9;
+}

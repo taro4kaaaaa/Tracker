@@ -1,0 +1,30 @@
+:root {
+  --bg-dark: #1a2c42;
+  --bg-panel: #1f3d61;
+  --color-green: #4ade80;
+  --color-red: #ef4444;
+  --color-purple: #a855f7;
+  --text-primary: #ffffff;
+  --text-secondary: #ffffff;
+  --border-color: #ccc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-dark);
+}
+
+#root {
+  height: 100%;
+}

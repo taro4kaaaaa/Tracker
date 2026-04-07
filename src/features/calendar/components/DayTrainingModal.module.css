@@ -1,0 +1,83 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.select,
+.textarea,
+.input {
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  background-color: white;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.select {
+  cursor: pointer;
+}
+
+.input {
+  width: 100px;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.saveButton,
+.deleteButton {
+  flex: 1;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.saveButton {
+  background-color: var(--color-green);
+  border: none;
+  color: #000;
+}
+
+.saveButton:hover {
+  opacity: 0.9;
+}
+
+.deleteButton {
+  background-color: var(--color-red);
+  border: none;
+  color: white;
+}
+
+.deleteButton:hover {
+  opacity: 0.9;
+}
