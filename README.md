@@ -1,73 +1,118 @@
-# React + TypeScript + Vite
+# 🏋️ Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Интерактивное веб-приложение для отслеживания тренировок, целей и прогресса пользователя.
 
-Currently, two official plugins are available:
+Основной фокус:
+- архитектура frontend-приложения  
+- управление состоянием  
+- работа с TypeScript  
+- разделение логики и UI  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🌐 Live Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+https://tracker-puce-alpha.vercel.app/
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📸 Screenshots
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🏠 Главная страница
+<img src="./src/assets/main.png" width="400"/>
+<p>Основной экран приложения с отображением активности пользователя и навигацией по разделам.</p>
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 🏋️ Тренировки
+<img src="./src/assets/training.png" width="400"/>
+<p>Список заверщенных тренировок с фильтрацией и пагинацией</p>
+
+### 📅 Календарь
+<img src="./src/assets/calendar.png" width="400"/>
+<p>Планирование тренировок на месяц</p>
+
+### 📈 Статистика
+<img src="./src/assets/statistics.png" width="400"/>
+<p>Аналитика тренировок и визуализация прогресса пользователя.</p>
+
+---
+
+## ✨ Key Features & Value
+
+- 🧠 **Feature-based архитектура**  
+  Проект разделён по бизнес-доменам (training, goals, calendar, statistics), что упрощает масштабирование и поддержку.
+
+- 📦 **Глобальное состояние через Context API**  
+  Состояние разделено на несколько контекстов (тренировки, цели, пользователь), что уменьшает связанность и избавляет от prop drilling.
+
+- 💾 **Сохранение данных (localStorage)**  
+  Все пользовательские данные сохраняются между сессиями без необходимости backend.
+
+- 🧮 **Вынос бизнес-логики**  
+  Основные расчёты и логика вынесены в utils, что повышает переиспользуемость и упрощает тестирование.
+
+- 📱 **Адаптивный интерфейс**  
+  Приложение корректно отображается на разных устройствах.
+
+- ⚡ **Быстрая работа приложения**  
+  Использование современного стека обеспечивает быстрый рендер и отзывчивый UI.
+
+---
+
+## 🧩 Technical Decisions & Challenges
+
+- **Почему Context API:**  
+  Выбран как лёгкое решение для управления глобальным состоянием без усложнения архитектуры. При масштабировании планируется переход на Zustand или Redux Toolkit.
+
+- **Хранение данных в localStorage:**  
+  Использовано как простое решение для persistence. Архитектура позволяет легко заменить на backend.
+
+- **Выбор структуры проекта:**  
+  Feature-based подход позволяет изолировать бизнес-логику и UI, упрощая развитие проекта.
+
+- **Работа с данными:**  
+  Изначально использовалась структура Map, но в дальнейшем планируется переход на более простые структуры (Record) для лучшей сериализации.
+
+- **Основной вызов:**  
+  Управление состоянием и синхронизация данных между компонентами без использования сторонних библиотек.
+
+---
+
+## 🛠 Tech Stack
+
+- React
+- TypeScript
+- Context API
+- LocalStorage
+- Vite
+
+---
+
+## 🧠 Architecture
+
+Проект организован по feature-based подходу:
+
+- features/ — бизнес-домены (training, goals, calendar, statistics)
+- shared/components/ — переиспользуемые UI-компоненты
+- shared/utils/ — бизнес-логика и расчёты
+- shared/types/ — типы данных
+- context/ — глобальное состояние приложения
+
+Подход позволяет:
+- разделять ответственность
+- переиспользовать код
+- упрощать масштабирование
+
+---
+
+## ⚙️ Installation
+
+```bash
+git clone https://github.com/taro4kaaaaa/Tracker.git
+cd Tracker
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
