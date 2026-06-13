@@ -3,10 +3,12 @@
 Интерактивное веб-приложение для отслеживания тренировок, целей и прогресса пользователя.
 
 Основной фокус:
-- архитектура frontend-приложения  
-- управление состоянием  
-- работа с TypeScript  
-- разделение логики и UI  
+
+- frontend и backend архитектура
+- управление состоянием
+- работа с REST API
+- контейнеризация приложения
+- разделение логики и UI
 
 ---
 
@@ -45,8 +47,11 @@ https://tracker-puce-alpha.vercel.app/
 - 📦 **Глобальное состояние через Context API**  
   Состояние разделено на несколько контекстов (тренировки, цели, пользователь), что уменьшает связанность и избавляет от prop drilling.
 
-- 💾 **Сохранение данных (localStorage)**  
-  Все пользовательские данные сохраняются между сессиями без необходимости backend.
+- 🌐 Интеграция с REST API
+  Цели и соревнования загружаются с backend-сервера через HTTP-запросы.
+
+- 💾 Хранение данных
+  Backend использует JSON-хранилище для хранения пользовательских данных.
 
 - 🧮 **Вынос бизнес-логики**  
   Основные расчёты и логика вынесены в utils, что повышает переиспользуемость и упрощает тестирование.
@@ -61,8 +66,11 @@ https://tracker-puce-alpha.vercel.app/
 - **Почему Context API:**  
   Выбран как лёгкое решение для управления глобальным состоянием без усложнения архитектуры. При масштабировании планируется переход на Zustand или Redux Toolkit.
 
-- **Хранение данных в localStorage:**  
-  Использовано как простое решение для persistence. Архитектура позволяет легко заменить на backend.
+- **Использование REST API:**
+  Frontend получает данные через Express API, что позволяет отделить клиентскую часть от слоя хранения данных.
+
+- **Backend на Express:**
+  Сервер предоставляет конечные точки для получения целей и соревнований и может быть расширен для полноценной работы с базой данных.
 
 - **Выбор структуры проекта:**  
   Feature-based подход позволяет изолировать бизнес-логику и UI, упрощая развитие проекта.
@@ -77,11 +85,51 @@ https://tracker-puce-alpha.vercel.app/
 
 ## 🛠 Tech Stack
 
+### Frontend
 - React
 - TypeScript
-- Context API
-- LocalStorage
 - Vite
+- Context API
+- CSS Modules
+
+### Backend
+- Node.js
+- Express
+- REST API
+- JSON Storage
+
+### DevOps
+- Docker
+- Docker Compose
+- Nginx
+- Linux
+- Container Networking
+
+---
+
+## 🐳 Containerization
+
+Приложение запускается в контейнерах Docker через Docker Compose.
+
+### Особенности
+
+- Docker для frontend
+- Docker для backend
+- Docker Compose orchestration
+- Изоляция сервисов
+- Контейнерная сеть между frontend и backend
+
+### Архитектура
+
+```text
+Frontend (React)
+       ↓
+REST API
+       ↓
+Backend (Express)
+       ↓
+JSON Storage
+```
 
 ---
 
@@ -104,11 +152,46 @@ https://tracker-puce-alpha.vercel.app/
 
 ## ⚙️ Installation
 
+### Run locally
+
 ```bash
 git clone https://github.com/taro4kaaaaa/Tracker.git
-cd Tracker
+cd Tracker/frontend
 npm install
 npm run dev
+```
+Frontend:
+```text
+http://localhost:5173
+```
+### Start backend
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+Backend:
+```text
+http://localhost:3000
+```
+### Run with Docker Compose
+
+```bash
+docker compose up --build
+```
+Frontend:
+```text
+http://localhost:5173
+```
+Backend:
+```text
+http://localhost:3000
+```
+Stop containers:
+```bash
+docker compose down
+```calhost:3000
 ```
 
 ---
