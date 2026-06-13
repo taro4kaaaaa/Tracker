@@ -19,20 +19,20 @@ https://tracker-puce-alpha.vercel.app/
 ## 📸 Screenshots
 
 ### 🏠 Главная страница
-<img src="./src/assets/main.png" width="400"/>
+<img src="./frontend/src/assets/main.png" width="400"/>
 <p>Основной экран приложения с отображением активности пользователя и навигацией по разделам.</p>
 
 
 ### 🏋️ Тренировки
-<img src="./src/assets/training.png" width="400"/>
+<img src="./frontend/src/assets/training.png" width="400"/>
 <p>Список заверщенных тренировок с фильтрацией и пагинацией</p>
 
 ### 📅 Календарь
-<img src="./src/assets/calendar.png" width="400"/>
+<img src="./frontend/src/assets/calendar.png" width="400"/>
 <p>Планирование тренировок на месяц</p>
 
 ### 📈 Статистика
-<img src="./src/assets/statistics.png" width="400"/>
+<img src="./frontend/src/assets/statistics.png" width="400"/>
 <p>Аналитика тренировок и визуализация прогресса пользователя.</p>
 
 ---
